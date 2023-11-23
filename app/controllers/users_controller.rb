@@ -1,3 +1,7 @@
+# Rahil Dutta
+# Created 5th November 2023
+# Matriculation Number : 1360929
+
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
@@ -56,6 +60,10 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def sample_api # api method 
+    @data = SampleApiClient.new.get_user
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -65,6 +73,9 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :age)
+      params.require(:user).permit(:name, :phone_number)
     end
 end
+# Rahil Dutta
+# Created 16th November 2023
+# Matriculation Number : 1360929
