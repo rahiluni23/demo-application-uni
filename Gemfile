@@ -58,3 +58,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 5.0'
 gem 'net-http'
+gem 'tiny_tds'
+gem 'activerecord-sqlserver-adapter'
+gem 'dotenv-rails', groups: [:development, :test]
