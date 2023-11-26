@@ -1,8 +1,13 @@
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
+  adapter: sqlserver
+  mode: dblib
+  dataserver:
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   timeout: 5000
+  azure: true
 
 production:
   adapter: sqlserver
@@ -16,8 +21,13 @@ production:
   azure: true
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
+  adapter: sqlserver
+  mode: dblib
+  dataserver:
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   timeout: 5000
+  azure: true
 
