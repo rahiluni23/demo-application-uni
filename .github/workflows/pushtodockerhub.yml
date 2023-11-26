@@ -18,7 +18,7 @@ jobs:
       - name: Build and push to Docker image
         uses: docker/build-push-action@v4
         with:
-          context: ./Dockerfile
+          context: Dockerfile
           push: true
           tags: rahildocker1/demo-application-uni-web:latest
           
