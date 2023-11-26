@@ -19,11 +19,13 @@ RUN apt-get install freetds-dev -y
 # Copy Gemfile and install gems
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler && bundle install --jobs 20 --retry 5
-ARG RAILS_MASTER_KEY
-RUN echo "$RAILS_MASTER_KEY" > config/master.key
+
+
 # Copy the rest of the application code
 COPY . .
 
+ARG RAILS_MASTER_KEY
+RUN echo "$RAILS_MASTER_KEY" > config/master.key
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
 
