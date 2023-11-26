@@ -19,7 +19,7 @@ RUN apt-get install freetds-dev -y
 # Copy Gemfile and install gems
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler && bundle install --jobs 20 --retry 5
-
+RUN echo "$RAILS_MASTER_KEY" > config/master.key
 # Copy the rest of the application code
 COPY . .
 
