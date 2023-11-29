@@ -24,10 +24,12 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 # Copy the rest of the application code
 COPY . .
 
-ARG RAILS_MASTER_KEY
-RUN echo "$RAILS_MASTER_KEY" > config/master.key
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
 
 # Start the Rails server
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server"]
+# RUN rails s
+# Rahil Dutta
+# Matriculation Number: 1360929
+# 26.11.2023
