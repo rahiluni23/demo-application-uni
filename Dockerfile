@@ -25,7 +25,7 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 COPY . .
 
 # Expose port 3000 to the Docker host, so we can access the app
-EXPOSE 3000
+EXPOSE 8000
 
 # Start the Rails server
 CMD ["rails", "server", "-b", "0.0.0.0"]
