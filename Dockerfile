@@ -26,7 +26,7 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 
 # Copy the rest of the application code
 COPY . .
-# COPY echo $RAILS_MASTER_KEY > /var/www/app_name/config/master.key
+COPY echo $RAILS_MASTER_KEY > /var/www/app_name/config/master.key
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
 
