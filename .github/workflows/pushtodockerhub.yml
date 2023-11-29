@@ -20,6 +20,8 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
+      env:
+        RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
       run: |
         docker build --build-arg RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -t rahildocker1/demo-application-uni-web:latest .
         docker push rahildocker1/demo-application-uni-web:latest
