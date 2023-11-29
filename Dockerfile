@@ -26,8 +26,8 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 
 # Copy the rest of the application code
 COPY . /app
-COPY config/master.key /app/config/master.key
-COPY config/credentials.yml.enc /app/config/credentials.yml.enc
+COPY ./config/master.key /app/config/master.key
+COPY ./config/credentials.yml.enc /app/config/credentials.yml.enc
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
 
