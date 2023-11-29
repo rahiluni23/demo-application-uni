@@ -12,8 +12,8 @@ ARG RAILS_MASTER_KEY
 ENV RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
 
 # Set up the application directory
-RUN mkdir -p $RAILS_ROOT
-WORKDIR $RAILS_ROOT
+
+WORKDIR /app
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install -y nodejs yarn
@@ -25,8 +25,9 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 
 
 # Copy the rest of the application code
-COPY . .
-
+COPY . /app
+COPY config/master.key /app/config/master.key
+COPY config/credentials.yml.enc /app/config/credentials.yml.enc
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
 
