@@ -29,6 +29,6 @@ COPY . .
 RUN echo $RAILS_MASTER_KEY > /var/www/app_name/config/master.key
 # Expose port 3000 to the Docker host, so we can access the app
 EXPOSE 8000
-RUN RAILS_ENV=production rails assets:precompile
+
 # Start the Rails server
 CMD ["rails", "server", "-b", "0.0.0.0"]
