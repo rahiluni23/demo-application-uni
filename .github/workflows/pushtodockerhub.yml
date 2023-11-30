@@ -22,6 +22,10 @@ jobs:
     - name: Build and push Docker image
       env:
         RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+        DATABASE_HOST: ${{ secrets.DATABASE_HOST }}
+        DATABASE_NAME: ${{ secrets.DATABASE_NAME }}
+        DATABASE_USERNAME: ${{ secrets.DATABASE_USERNAME }}
+        DATABASE_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
       run: |
         docker build --build-arg RAILS_MASTER_KEY=${{ secrets.RAILS_MASTER_KEY }} -t rahildocker1/demo-application-uni-web:latest .
         docker push rahildocker1/demo-application-uni-web:latest
